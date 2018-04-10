@@ -3,7 +3,7 @@
 var multer = require('multer');
 var Photo = require('../models/photoModel');
 
-//set diskstorage location to use public/img and unique string name for photos
+/*set diskstorage location to use public/img and unique string name for photos
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/img');
@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 });
 
 
-//comment above so it doesn't write locally - or create directory on db
+//comment above so it doesn't write locally - or create directory on db*/
 
 //use imagefilter to filter photos we're taking in
 const imageFilter = function (req, file, cb) {
