@@ -1,0 +1,20 @@
+h2
+  center Upload a Photo
+
+
+  .row
+      .col-md-6.col-md-offset-3
+          if flashMsg.length > 0
+            .alert.alert-info <strong>Flash!</strong>#{flashMsg}
+          //input forms - div setup bootstrap stylesheet
+          form(method='Post' action="/photos" enctype="multipart/form-data")
+            div.form-group
+              label(for='name') Photo Title:
+              input#name.form-control(type='text', placeholder='photo title' name='title')
+            div.form-group
+              label(for='email') Description:
+              input#email.form-control(type='text', placeholder='description' name='description')
+            div.form-group
+              label(for='image') Image:
+              input#image.form-control(type='file', name='image')
+            button.btn.btn-primary(type='submit') Post Your Photo

@@ -1,0 +1,22 @@
+.row
+    .col-md-6.col-md-offset-3
+      p Title: #{photo.title}
+      p Description: #{photo.description}
+      p Size: #{photo.size} | Filename: #{photo.originalname} | Uploaded: #{photo.createdAt}
+      img(src=photo.imageurl, width="250")
+      if flashMsg.length > 0
+        .alert.alert-info <strong>Flash!</strong>#{flashMsg}
+      //input forms - div setup bootstrap stylesheet
+      form(method='Post' action="/photos/"+photo._id)
+        div.form-group
+          label(for='name') Photo Title:
+          input#name.form-control(type='text', value=photo.title name='title')
+        div.form-group
+          label(for='email') Description:
+          input#email.form-control(type='text', value=photo.description name='description')
+        div.form-group
+          input#name.form-control(type='hidden', name='_id' value=photo.id)
+        button.btn.btn-primary(type='submit') Update Your Photo
+
+      form(method="post" action="/photos/delete/" + photo._id + "?_method=DELETE")
+        input#delBtn(type="submit" name="delButton" value="Delete Photo")
